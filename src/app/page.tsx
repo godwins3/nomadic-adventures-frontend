@@ -154,25 +154,6 @@ export default function Home() {
           </div>
         </motion.section>
 
-        <motion.section 
-          className="mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <h2 className="text-2xl font-bold mb-4">What Our Travelers Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-gray-100 p-4 rounded-lg">
-              <p className="mb-2">&quot;The Machu Picchu trek was life-changing! Our guide was knowledgeable and the views were breathtaking. Highly recommend!&quot;</p>
-              <p className="font-semibold">- Sarah T.</p>
-            </div>
-            <div className="bg-gray-100 p-4 rounded-lg">
-              <p className="mb-2">&quot;Camping in the Sahara was an unforgettable experience. The night sky was unlike anything I&apos;ve ever seen. Thank you, Nomadic Adventures!&quot;</p>
-              <p className="font-semibold">- Michael R.</p>
-            </div>
-          </div>
-        </motion.section>
-
         {/* Testimonial Carousel */}
         <TestimonialCarousel />
       </main>
