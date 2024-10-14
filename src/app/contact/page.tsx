@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -9,13 +9,19 @@ import Footer from '../../components/Footer';
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import dynamic from 'next/dynamic';
+
+const MapContainer = dynamic(() => import('react-leaflet').then((mod) => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import('react-leaflet').then((mod) => mod.TileLayer), { ssr: false });
+const Marker = dynamic(() => import('react-leaflet').then((mod) => mod.Marker), { ssr: false });
+const Popup = dynamic(() => import('react-leaflet').then((mod) => mod.Popup), { ssr: false });
 
 interface ExtendedIconDefault extends L.Icon.Default {
     _getIconUrl?: () => string;
   }
   
-  // Fix Leaflet icon issue
-  delete (L.Icon.Default.prototype as ExtendedIconDefault)._getIconUrl;
+// Fix Leaflet icon issue
+delete (L.Icon.Default.prototype as ExtendedIconDefault)._getIconUrl;
   
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: markerIcon2x.src,
@@ -23,7 +29,36 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow.src,
 });
 
+const Map = () => (
+  <div className="h-64 rounded-lg overflow-hidden">
+    <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '100%', width: '100%' }}>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+      <Marker position={[51.505, -0.09]}>
+        <Popup>
+          Nomadic Adventures <br /> Your gateway to extraordinary journeys.
+        </Popup>
+      </Marker>
+    </MapContainer>
+  </div>
+);
+
+const ClientSideMap = dynamic(() => Promise.resolve(Map), {
+  ssr: false
+});
+
 export default function Contact() {
+  useEffect(() => {
+    delete (L.Icon.Default.prototype as any)._getIconUrl;
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: markerIcon2x.src,
+      iconUrl: markerIcon.src,
+      shadowUrl: markerShadow.src,
+    });
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -121,19 +156,7 @@ export default function Contact() {
                 <p className="mb-2"><strong>Phone:</strong> +1 (555) 123-4567</p>
                 <p className="mb-2"><strong>Email:</strong> info@nomadicadventures.com</p>
               </div>
-              <div className="h-64 rounded-lg overflow-hidden">
-                <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '100%', width: '100%' }}>
-                  <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  />
-                  <Marker position={[51.505, -0.09]}>
-                    <Popup>
-                      Nomadic Adventures <br /> Your gateway to extraordinary journeys.
-                    </Popup>
-                  </Marker>
-                </MapContainer>
-              </div>
+              <ClientSideMap />
             </motion.div>
           </div>
         </div>
