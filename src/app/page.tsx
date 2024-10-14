@@ -73,10 +73,10 @@ export default function Home() {
               </div>
               <div className="md:w-1/2">
                 <p className="text-lg mb-4">
-                  At Nomadic Adventures, we're passionate about creating unforgettable travel experiences that challenge perspectives and foster cultural understanding.
+                  At Nomadic Adventures, we&apos;re passionate about creating unforgettable travel experiences that challenge perspectives and foster cultural understanding.
                 </p>
                 <p className="text-lg mb-4">
-                  Founded in 2010 by a group of avid travelers, we've spent over a decade curating unique, sustainable tours that take you off the beaten path and into the heart of local cultures.
+                  Founded in 2010 by a group of avid travelers, we&apos;ve spent over a decade curating unique, sustainable tours that take you off the beaten path and into the heart of local cultures.
                 </p>
                 <Link href="/about" className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">
                   Learn More About Us
@@ -97,7 +97,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                 <h3 className="text-xl font-semibold mb-3">Unique Destinations</h3>
-                <p>We offer tours to off-the-beaten-path locations that you won't find with other agencies.</p>
+                <p>We offer tours to off-the-beaten-path locations that you won&apos;t find with other agencies.</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                 <h3 className="text-xl font-semibold mb-3">Expert Guides</h3>
@@ -154,7 +154,24 @@ export default function Home() {
           </div>
         </motion.section>
 
-          
+        <motion.section 
+          className="mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <h2 className="text-2xl font-bold mb-4">What Our Travelers Say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-gray-100 p-4 rounded-lg">
+              <p className="mb-2">&quot;The Machu Picchu trek was life-changing! Our guide was knowledgeable and the views were breathtaking. Highly recommend!&quot;</p>
+              <p className="font-semibold">- Sarah T.</p>
+            </div>
+            <div className="bg-gray-100 p-4 rounded-lg">
+              <p className="mb-2">&quot;Camping in the Sahara was an unforgettable experience. The night sky was unlike anything I&apos;ve ever seen. Thank you, Nomadic Adventures!&quot;</p>
+              <p className="font-semibold">- Michael R.</p>
+            </div>
+          </div>
+        </motion.section>
 
         {/* Testimonial Carousel */}
         <TestimonialCarousel />
@@ -164,6 +181,5 @@ export default function Home() {
       <br />
       <Footer />
     </div>
-    
   );
 }

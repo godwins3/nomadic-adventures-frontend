@@ -21,7 +21,7 @@ export default function Header() {
         <Link href="/" className="text-2xl font-bold tracking-wider hover:text-slate-300 transition-colors duration-300">Nomadic Adventures</Link>
         <nav className="space-x-6">
           <Link href="/tours" className="hover:text-slate-300 transition-colors duration-300">Our Tours</Link>
-          <Link href="/about" className="hover:text-slate-300 transition-colors duration-300">About</Link>
+          <Link href="/about-us" className="hover:text-slate-300 transition-colors duration-300">About</Link>
           <Link href="/contact" className="hover:text-slate-300 transition-colors duration-300">Contact</Link>
         </nav>
       </div>

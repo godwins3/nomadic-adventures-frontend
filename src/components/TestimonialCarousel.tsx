@@ -70,6 +70,7 @@ const TestimonialCarousel = () => {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
                 className={`w-3 h-3 rounded-full ${
                   index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
                 }`}
