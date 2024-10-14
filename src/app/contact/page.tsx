@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import Header from '../../components/Header';
@@ -19,15 +18,6 @@ const Popup = dynamic(() => import('react-leaflet').then((mod) => mod.Popup), { 
 interface ExtendedIconDefault extends L.Icon.Default {
     _getIconUrl?: () => string;
   }
-  
-// Fix Leaflet icon issue
-delete (L.Icon.Default.prototype as ExtendedIconDefault)._getIconUrl;
-  
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: markerIcon2x.src,
-  iconUrl: markerIcon.src,
-  shadowUrl: markerShadow.src,
-});
 
 const Map = () => (
   <div className="h-64 rounded-lg overflow-hidden">
@@ -51,7 +41,7 @@ const ClientSideMap = dynamic(() => Promise.resolve(Map), {
 
 export default function Contact() {
   useEffect(() => {
-    delete (L.Icon.Default.prototype as any)._getIconUrl;
+    delete (L.Icon.Default.prototype as ExtendedIconDefault)._getIconUrl;
     L.Icon.Default.mergeOptions({
       iconRetinaUrl: markerIcon2x.src,
       iconUrl: markerIcon.src,
