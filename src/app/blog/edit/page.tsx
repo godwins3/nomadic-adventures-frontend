@@ -1,6 +1,6 @@
 'use client'
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import BlogEditor from '../../../components/BlogEditor';
@@ -9,6 +9,11 @@ export default function EditBlogPost() {
   const router = useRouter();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,6 +22,10 @@ export default function EditBlogPost() {
     // Redirect to the blog list page after submission
     router.push('/blog');
   };
+
+  if (!isClient) {
+    return null; // or a loading indicator
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
