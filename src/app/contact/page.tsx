@@ -103,8 +103,8 @@ export default function Contact() {
             >
               <h2 className="text-2xl font-semibold mb-4">Our Location</h2>
               <div className="bg-white rounded-lg shadow-md p-4 mb-6">
-                <p className="mb-2"><strong>Address:</strong> 123 Adventure St, Exploreville, EX 12345</p>
-                <p className="mb-2"><strong>Phone:</strong> +1 (555) 123-4567</p>
+                <p className="mb-2"><strong>Address:</strong> Westlands, Nairobi, Kenya</p>
+                <p className="mb-2"><strong>Phone:</strong> +254742079321</p>
                 <p className="mb-2"><strong>Email:</strong> info@nomadicadventures.com</p>
               </div>
               <DynamicMap />
