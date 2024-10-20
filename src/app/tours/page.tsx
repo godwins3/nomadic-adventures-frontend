@@ -8,7 +8,7 @@ import Footer from '../../components/Footer';
 import { tours } from '../../data/tours';
 
 // Mock data for tours
-const categories = ['All', 'Cultural', 'Adventure', 'Nature'];
+const categories = ['All', 'Wildlife', 'Adventure', 'Nature'];
 
 export default function Tours() {
   const [selectedCategory, setSelectedCategory] = useState('All');

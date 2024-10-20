@@ -6,7 +6,13 @@ interface Destination {
   name: string;
 }
 
-const ItineraryBuilder: React.FC<{ destinations: Destination[] }> = ({ destinations }) => {
+interface ItineraryBuilderProps {
+  destinations: Destination[];
+  onSelect: (destination: Destination) => void;
+  selectedDestinations: Destination[];
+}
+
+const ItineraryBuilder: React.FC<ItineraryBuilderProps> = ({ destinations }) => {
   const [itinerary, setItinerary] = useState<Destination[]>([]);
 
   const onDragEnd = (result: DropResult) => {
@@ -73,4 +79,3 @@ const ItineraryBuilder: React.FC<{ destinations: Destination[] }> = ({ destinati
 };
 
 export default ItineraryBuilder;
-
