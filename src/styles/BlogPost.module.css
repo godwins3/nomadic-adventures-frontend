@@ -1,0 +1,73 @@
+.blogPost {
+  font-family: 'Georgia', serif;
+}
+
+.blogPost h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.blogPost h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #34495e;
+}
+
+.blogPost p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.blogPost a {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.blogPost blockquote {
+  border-left: 4px solid #3498db;
+  padding-left: 1rem;
+  font-style: italic;
+  color: #7f8c8d;
+  margin: 1.5rem 0;
+}
+
+.blogPost pre {
+  background-color: #f7f7f7;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.blogPost code {
+  background-color: #f0f0f0;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.blogPost ul, .blogPost ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.blogPost li {
+  margin-bottom: 0.5rem;
+}
+
+.blogPost img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+}
+
+.blogPost hr {
+  border: 0;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 2rem 0;
+}
