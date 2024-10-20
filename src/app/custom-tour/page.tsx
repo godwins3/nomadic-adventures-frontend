@@ -17,7 +17,11 @@ export default function CustomTour() {
       <Header />
       <main className="flex-grow container mx-auto py-8 px-4">
         <h1 className="text-3xl font-bold mb-6">Create Your Custom Tour</h1>
-        <ItineraryBuilder destinations={destinations} />
+        <ItineraryBuilder 
+          destinations={destinations} 
+          onSelect={() => {}} 
+          selectedDestinations={[]}
+        />
       </main>
       <Footer />
     </div>
