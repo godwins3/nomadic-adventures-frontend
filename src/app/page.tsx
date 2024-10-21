@@ -84,7 +84,7 @@ export default function Home() {
                 <p className="text-lg mb-4">
                   Founded in 2010 by a group of avid travelers, we&apos;ve spent over a decade curating unique, sustainable tours that take you off the beaten path and into the heart of local cultures.
                 </p>
-                <Link href="/about" className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">
+                <Link href="/about-us" className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">
                   Learn More About Us
                 </Link>
               </div>
