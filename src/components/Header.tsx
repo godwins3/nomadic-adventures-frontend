@@ -2,13 +2,14 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const languages = ['English', 'Spanish', 'French'];
+const languages = ['English', 'Spanish', 'French', 'Italian'];
 const currencies = ['USD', 'EUR', 'GBP'];
 
 export default function Header() {
   const [isSticky, setIsSticky] = useState(false);
   const [language, setLanguage] = useState('English');
   const [currency, setCurrency] = useState('USD');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,15 +25,28 @@ export default function Header() {
     <header className={`bg-slate-700 text-white p-4 transition-all duration-300 ${isSticky ? 'fixed top-0 left-0 right-0 shadow-lg z-50' : ''}`}>
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold tracking-wider hover:text-slate-300 transition-colors duration-300">Nomadic Adventures</Link>
-        <nav className="space-x-6 flex items-center">
-          <Link href="/about-us" className="hover:text-slate-300 transition-colors duration-300">About</Link>
-          <Link href="/blog" className="hover:text-slate-300 transition-colors duration-300">Blog</Link>
-          <Link href="/tours" className="hover:text-slate-300 transition-colors duration-300">Our Tours</Link>
-          <Link href="/contact" className="hover:text-slate-300 transition-colors duration-300">Contact</Link>
+        
+        {/* Hamburger menu button */}
+        <button 
+          className="lg:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
+          </svg>
+        </button>
+
+        {/* Navigation menu */}
+        <nav className={`${isMenuOpen ? 'block' : 'hidden'} lg:flex lg:items-center lg:space-x-6 absolute lg:static top-full left-0 right-0 bg-slate-700 lg:bg-transparent p-4 lg:p-0`}>
+          <Link href="/about-us" className="block py-2 lg:py-0 hover:text-slate-300 transition-colors duration-300">About</Link>
+          <Link href="/blog" className="block py-2 lg:py-0 hover:text-slate-300 transition-colors duration-300">Blog</Link>
+          <Link href="/tours" className="block py-2 lg:py-0 hover:text-slate-300 transition-colors duration-300">Our Tours</Link>
+          <Link href="/contact" className="block py-2 lg:py-0 hover:text-slate-300 transition-colors duration-300">Contact</Link>
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
-            className="bg-slate-600 text-white p-1 rounded"
+            className="bg-slate-600 text-white p-1 rounded mt-2 lg:mt-0"
             aria-label="Select language"
           >
             {languages.map((lang) => (
@@ -42,7 +56,7 @@ export default function Header() {
           <select
             value={currency}
             onChange={(e) => setCurrency(e.target.value)}
-            className="bg-slate-600 text-white p-1 rounded"
+            className="bg-slate-600 text-white p-1 rounded mt-2 lg:mt-0"
             aria-label="Select currency"
           >
             {currencies.map((curr) => (
