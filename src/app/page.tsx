@@ -5,9 +5,7 @@ import { motion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TestimonialCarousel from "../components/TestimonialCarousel";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { useEffect, useState } from 'react';
 
 const featuredDestinations = [
   {
@@ -41,44 +39,56 @@ const featuredDestinations = [
 
 export default function Home() {
   const heroImages = [
-    "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800",
-    "https://images.unsplash.com/photo-1501555088652-021faa106b9b",
-    // Add more image URLs as needed
+    "/images/hero2.jpeg",
+    "/images/hero1.jpeg",
   ]
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-  };
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow">
-      <section className="relative h-screen flex items-center justify-center">
-          <Slider {...settings}>
-            {heroImages.map((image, index) => (
-              <div key={index} className="relative h-screen">
-                <Image
-                  src={image}
-                  alt={`Hero image ${index + 1}`}
-                  layout="fill"
-                  objectFit="cover"
-                  quality={100}
-                />
-                <div className="absolute inset-0 bg-black opacity-50"></div>
-              </div>
-            ))}
-          </Slider>
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-10 text-center text-white">
+        <section className="carousel">
+          {heroImages.map((image, index) => (
+            <div
+              key={index}
+              className={`carousel-slide ${index === activeIndex ? 'active' : ''}`}
+            >
+              <Image
+                src={image}
+                alt={`Hero image ${index + 1}`}
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            </div>
+          ))}
+          <div className="carousel-content">
             <h2 className="text-5xl font-bold mb-4">Discover the World with Us</h2>
             <p className="text-xl mb-8">Unforgettable adventures await you</p>
-            <Link href="/tours" className="bg-yellow-500 text-blue-900 px-8 py-3 rounded-full text-lg font-semibold hover:bg-yellow-400 transition-colors duration-300">
+            <Link
+              href="/tours"
+              className="bg-yellow-500 text-blue-900 px-8 py-3 rounded-full text-lg font-semibold hover:bg-yellow-400 transition-colors duration-300"
+            >
               Explore Our Tours
             </Link>
+          </div>
+          <div className="carousel-indicators">
+            {heroImages.map((_, index) => (
+              <div
+                key={index}
+                className={`carousel-indicator ${index === activeIndex ? 'active' : ''}`}
+                onClick={() => setActiveIndex(index)}
+              ></div>
+            ))}
           </div>
         </section>
 
@@ -161,8 +171,9 @@ export default function Home() {
                     <Image
                       src={destination.image}
                       alt={destination.name}
-                      layout="fill"
-                      objectFit="cover"
+                      sizes= "(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+                      fill
+                      style={{ objectFit: 'cover' }}
                       className="transition-transform duration-300 hover:scale-105"
                     />
                   </div>

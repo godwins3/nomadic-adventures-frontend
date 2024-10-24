@@ -3,13 +3,63 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function About() {
+  const heroImages = [
+    "/images/hero2.jpeg",
+    "/images/hero1.jpeg",
+  ]
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
 
-      <main className="flex-grow container mx-auto py-12 px-4">
+      <main className="flex-grow">
+        <section className="carousel">
+          {heroImages.map((image, index) => (
+            <div
+              key={index}
+              className={`carousel-slide ${index === activeIndex ? 'active' : ''}`}
+            >
+              <Image
+                src={image}
+                alt={`Hero image ${index + 1}`}
+                layout="fill"
+                objectFit="cover"
+                quality={100}
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            </div>
+          ))}
+          <div className="carousel-content">
+            <h2 className="text-5xl font-bold mb-4">Discover the World with Us</h2>
+            <p className="text-xl mb-8">Unforgettable adventures await you</p>
+            <Link
+              href="/tours"
+              className="bg-yellow-500 text-blue-900 px-8 py-3 rounded-full text-lg font-semibold hover:bg-yellow-400 transition-colors duration-300"
+            >
+              Explore Our Tours
+            </Link>
+          </div>
+          <div className="carousel-indicators">
+            {heroImages.map((_, index) => (
+              <div
+                key={index}
+                className={`carousel-indicator ${index === activeIndex ? 'active' : ''}`}
+                onClick={() => setActiveIndex(index)}
+              ></div>
+            ))}
+          </div>
+        </section>
         <motion.h1 
           className="text-4xl font-bold mb-8 text-center text-indigo-800"
           initial={{ opacity: 0, y: -20 }}
@@ -19,7 +69,7 @@ export default function About() {
           About Nomadic Adventures
         </motion.h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16 py-12 px-4">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -28,8 +78,8 @@ export default function About() {
             <Image
               src="https://images.unsplash.com/photo-1501555088652-021faa106b9b"
               alt="Nomadic Adventures Team"
-              width={600}
-              height={400}
+              width={900}
+              height={600}
               className="rounded-lg shadow-lg"
             />
           </motion.div>
@@ -53,15 +103,16 @@ export default function About() {
         </div>
 
         <motion.section
-          className="bg-white py-12 px-6 rounded-xl shadow-md mb-16"
+          className="bg-white py-12 px-6 rounded-xl shadow-md mb-16 py-12 px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-6 text-center text-indigo-800">Our Mission</h2>
-          <p className="text-center text-lg max-w-3xl mx-auto">
-            To provide unique, sustainable, and unforgettable travel experiences that challenge perspectives and foster cultural understanding, while promoting responsible tourism and creating positive impacts on the communities we visit.
-          </p>
+        > <div className="py-12 px-4">
+            <h2 className="text-3xl font-bold mb-6 text-center text-indigo-800">Our Mission</h2>
+            <p className="text-center text-lg max-w-3xl mx-auto">
+              To provide unique, sustainable, and unforgettable travel experiences that challenge perspectives and foster cultural understanding, while promoting responsible tourism and creating positive impacts on the communities we visit.
+            </p>
+          </div>
         </motion.section>
 
         <motion.section
@@ -71,7 +122,7 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           <h2 className="text-3xl font-bold mb-8 text-center text-indigo-800">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12 px-4">
             {[
               { name: "Jane Doe", role: "Founder & CEO", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80" },
               { name: "John Smith", role: "Head of Operations", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e" },
