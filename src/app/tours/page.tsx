@@ -32,7 +32,7 @@ export default function Tours() {
               <input
                 type="text"
                 placeholder="Search tours..."
-                className="p-2 border rounded-md w-full md:w-64"
+                className="p-2 border rounded-full w-full md:w-64"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />

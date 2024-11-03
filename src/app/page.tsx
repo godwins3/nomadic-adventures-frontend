@@ -134,7 +134,7 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <div className="container mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-center">Why Choose Us?</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">Why Us?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                 <h3 className="text-xl font-semibold mb-3">Unique Destinations</h3>
@@ -149,6 +149,21 @@ export default function Home() {
                 <p>We prioritize eco-friendly practices and support local communities in all our tours.</p>
               </div>
             </div>
+            <br />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <h3 className="text-xl font-semibold mb-3">World class service</h3>
+                <p>We offer customer experiences that you won&apos;t find with other agencies.</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <h3 className="text-xl font-semibold mb-3">Best Prices</h3>
+                <p>Our tours package offer the best value for your money.</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <h3 className="text-xl font-semibold mb-3">World class accommodation</h3>
+                <p>We prioritize eco-friendly practices and support local communities in all our tours.</p>
+              </div>
+            </div>
           </div>
         </motion.section>
 
@@ -159,7 +174,7 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 text-center">Featured Destinations</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">Top Nomadic Destinations</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredDestinations.map((destination, index) => (
                 <motion.div
