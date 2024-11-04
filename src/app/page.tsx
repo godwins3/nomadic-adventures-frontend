@@ -142,7 +142,7 @@ export default function Home() {
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                 <h3 className="text-xl font-semibold mb-3">Expert Guides</h3>
-                <p>Our experienced guides ensure you have a safe and enriching adventure.</p>
+                <p>Our experienced guides ensure you have a safe and enriching adventure full of memories.</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                 <h3 className="text-xl font-semibold mb-3">Sustainable Travel</h3>
@@ -157,7 +157,7 @@ export default function Home() {
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                 <h3 className="text-xl font-semibold mb-3">Best Prices</h3>
-                <p>Our tours package offer the best value for your money.</p>
+                <p>Our tours package offer the best value for your money but still gives you memories worth remembering.</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
                 <h3 className="text-xl font-semibold mb-3">World class accommodation</h3>

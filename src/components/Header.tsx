@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const currencies = ['USD', 'EUR', 'GBP'];
+const currencies = ['USD', 'EUR', 'GBP', 'KES'];
 
 export default function Header() {
   const [isSticky, setIsSticky] = useState(false);
@@ -38,11 +38,11 @@ export default function Header() {
         </button>
 
         {/* Navigation menu */}
-        <nav className={`${isMenuOpen ? 'block' : 'hidden'} lg:flex lg:items-center lg:space-x-6 absolute lg:static top-full left-0 right-0 bg-slate-700 lg:bg-transparent p-4 lg:p-0`}>
-          <div className="ms-5 flex w-[30%] items-center justify-between">
+        <nav className={`${isMenuOpen ? 'fixed top-16 left-0 right-0 bg-slate-700 z-50' : 'hidden'} lg:flex lg:items-center lg:space-x-6 lg:static lg:bg-transparent p-4 lg:p-0`}>
+          <div className="flex w-full lg:w-auto items-center justify-between space-x-2 lg:space-x-4">
             <input
               type="search"
-              className="p-2 border rounded-full w-full md:w-64 text-white bg-transparent"
+              className="p-2 border rounded-full w-full lg:w-64 text-white bg-transparent"
               placeholder="Search"
               aria-label="Search"
               aria-describedby="button-addon2" />
