@@ -41,6 +41,9 @@ export default function Home() {
   const heroImages = [
     "/images/hero2.jpeg",
     "/images/hero1.jpeg",
+    "/images/img4.jpg",
+    "/images/img1.jpg",
+    "/images/img3.jpg",
     "https://images.unsplash.com/photo-1554490752-6a232eca5e60?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFhc2FpJTIwbWFyYSUyMG5hdGlvbmFsJTIwcGFya3xlbnwwfHwwfHx8Mg%3D%3D",
     "https://images.unsplash.com/photo-1547970810-dc1eac37d174?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
   ]
@@ -105,7 +108,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
                 <Image
-                  src="https://images.unsplash.com/photo-1501555088652-021faa106b9b" // Make sure to add this image to your public/images folder
+                  src="/images/img4.jpg" // Make sure to add this image to your public/images folder
                   alt="Nomadic Adventures Team"
                   width={600}
                   height={400}

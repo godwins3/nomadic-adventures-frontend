@@ -42,7 +42,7 @@ export const tours: Tour[] = [
     description: 'Discover the pink flamingo-fringed shores and diverse wildlife of this alkaline lake.',
     duration: '5 days',
     price: 800,
-    image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+    image: "/images/img13.jpg",
     category: 'Nature'
   },
   {
@@ -51,7 +51,7 @@ export const tours: Tour[] = [
     description: 'Experience a unique urban wildlife sanctuary with diverse animals against a city backdrop.',
     duration: '4 days',
     price: 2000,
-    image: 'https://images.unsplash.com/photo-1611348586804-61bf6c080437?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80',
+    image: "/images/img11.jpg",
     category: 'Wildlife'
   },
   {
