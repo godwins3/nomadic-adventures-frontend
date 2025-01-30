@@ -2,7 +2,7 @@ export interface BlogPost {
     id: number;
     title: string;
     content: string;
-    image: string;
+    image: string[];
     date: string;
     category: string;
 }
@@ -59,8 +59,7 @@ Off the beaten path in western Kenya, Rusinga Island offers a peaceful retreat w
 - Fishing villages where you can experience local life
 
 ## 7. Chyulu Hills, Southern Kenya
-
-<img src ='https://images.unsplash.com/photo-1547471080-7cc2caa01a7e'></img>
+![Chyulu Hills](https://images.unsplash.com/photo-1547471080-7cc2caa01a7e)
 
 Often called the "Green Hills of Africa," immortalized by Ernest Hemingway, the Chyulu Hills offer a less crowded alternative to nearby Amboseli. The area boasts:
 
@@ -94,7 +93,9 @@ While many flock to Diani Beach, Watamu offers equally beautiful beaches with th
 
 These hidden gems of Kenya offer extraordinary experiences for those willing to venture off the beaten path. From otherworldly landscapes to rich cultural heritage, each destination provides a unique perspective on the diverse beauty of this incredible country. As you plan your Kenyan adventure, consider including one or more of these lesser-known wonders to make your journey truly unforgettable. Remember to travel responsibly, respect local cultures and environments, and embrace the spirit of discovery that makes exploring these hidden gems so rewarding.
     `,
-      image: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e',
+      image: ['https://images.unsplash.com/photo-1547471080-7cc2caa01a7e',
+              'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e'
+              ]
       date: '2024-03-15',
       category: 'Travel Tips',
     },
