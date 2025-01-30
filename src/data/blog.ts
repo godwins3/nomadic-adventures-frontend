@@ -60,7 +60,7 @@ Off the beaten path in western Kenya, Rusinga Island offers a peaceful retreat w
 
 ## 7. Chyulu Hills, Southern Kenya
 
-<img src ='https://images.unsplash.com/photo-1547471080-7cc2caa01a7e'>
+<img src ='https://images.unsplash.com/photo-1547471080-7cc2caa01a7e'></img>
 
 Often called the "Green Hills of Africa," immortalized by Ernest Hemingway, the Chyulu Hills offer a less crowded alternative to nearby Amboseli. The area boasts:
 
