@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import TestimonialCarousel from "../components/TestimonialCarousel";
 import { useEffect, useState } from 'react';
+import GalleryPreview from "@/components/GalleryPreview";
 
 const featuredDestinations = [
   {
@@ -170,7 +171,7 @@ export default function Home() {
             </div>
           </div>
         </motion.section>
-
+        
         <motion.section 
           className="py-16 bg-gray-50"
           initial={{ opacity: 0, y: 20 }}
@@ -214,6 +215,8 @@ export default function Home() {
             </div>
           </div>
         </motion.section>
+        
+        <GalleryPreview />
 
         {/* Testimonial Carousel */}
         <TestimonialCarousel />
