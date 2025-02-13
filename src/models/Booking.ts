@@ -1,9 +1,11 @@
 // models/Booking.ts
 import mongoose, { Document, Model } from 'mongoose';
+import { string } from 'three/webgpu';
 
 export interface IBooking extends Document {
 //   tourId: mongoose.Types.ObjectId;
   tourId: string;
+  destination: string;
   date: Date;
   name: string;
   email: string;
@@ -17,6 +19,10 @@ const BookingSchema = new mongoose.Schema<IBooking>({
     // type: mongoose.Schema.Types.ObjectId,
     type: String,
     required: true,
+  },
+  destination: {
+    type: String,
+    required: true
   },
   date: {
     type: Date,

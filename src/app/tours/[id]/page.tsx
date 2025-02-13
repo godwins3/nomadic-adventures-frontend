@@ -37,7 +37,7 @@ export default function TourBooking() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Include the tourId in the booking data
-    const bookingDataWithTourId = { ...bookingData, tourId: id };
+    const bookingDataWithTourId = { ...bookingData, tourId: id, destination: tour.name};
       
     try {
       const response = await fetch('/api/v1/tours/book', {
@@ -160,7 +160,8 @@ export default function TourBooking() {
             </form>
           </div>
         </div>
-        <ReviewSystem tourId={tour.id} existingReviews={[]} />
+        <ReviewSystem tourId={id} />
+        <br />
       </main>
       <Footer />
     </div>
