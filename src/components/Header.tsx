@@ -6,7 +6,6 @@ const currencies = ['USD', 'EUR', 'GBP', 'KES'];
 
 export default function Header() {
   const [isSticky, setIsSticky] = useState(false);
-  const [currency, setCurrency] = useState('USD');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   useEffect(() => {

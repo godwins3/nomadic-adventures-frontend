@@ -46,12 +46,12 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ imageUrl, title }) => {
 
     window.addEventListener('resize', handleResize);
 
-    return () => {
+    return () => useEffect(() =>{
       window.removeEventListener('resize', handleResize);
       if (containerRef.current) {
         containerRef.current.removeChild(renderer.domElement);
       }
-    };
+    });
   }, [imageUrl]);
 
   return (

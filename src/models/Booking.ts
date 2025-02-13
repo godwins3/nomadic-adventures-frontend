@@ -1,6 +1,5 @@
 // models/Booking.ts
 import mongoose, { Document, Model } from 'mongoose';
-import { string } from 'three/webgpu';
 
 export interface IBooking extends Document {
 //   tourId: mongoose.Types.ObjectId;
