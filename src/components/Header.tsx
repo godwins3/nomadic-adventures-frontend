@@ -2,8 +2,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-const currencies = ['USD', 'EUR', 'GBP', 'KES'];
-
 export default function Header() {
   const [isSticky, setIsSticky] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
