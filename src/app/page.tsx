@@ -69,10 +69,11 @@ export default function Home() {
               <Image
                 src={image}
                 alt={`Hero image ${index + 1}`}
-                layout="fill"
-                objectFit="cover"
+                fill
+                style={{ objectFit: "cover" }}
                 quality={100}
               />
+
               <div className="absolute inset-0 bg-black bg-opacity-50"></div>
             </div>
           ))}

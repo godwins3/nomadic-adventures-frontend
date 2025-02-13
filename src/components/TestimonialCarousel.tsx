@@ -5,21 +5,21 @@ import Image from 'next/image';
 const testimonials = [
   {
     id: 1,
-    name: 'John Doe',
+    name: 'John Kelly',
     text: 'Nomadic Adventures provided an unforgettable experience. The guides were knowledgeable and the destinations were breathtaking!',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80',
+    image: '/images/person2.jpg',
   },
   {
     id: 2,
     name: 'Jane Smith',
     text: 'I have traveled with many companies, but Nomadic Adventures stands out. Their attention to detail and commitment to sustainable tourism is impressive.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80',
+    image: '/images/person1.jpg',
   },
   {
     id: 3,
     name: 'Mike Johnson',
     text: 'The Machu Picchu trek was life-changing. Nomadic Adventures made sure every aspect of the trip was perfect.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80',
+    image: '/images/person3.jpg',
   },
 ];
 

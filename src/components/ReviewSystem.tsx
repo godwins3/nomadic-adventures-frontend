@@ -72,6 +72,8 @@ const ReviewSystem: React.FC<ReviewSystemProps> = ({ existingReviews = [] }) => 
         >
           Submit Review
         </button>
+        <br />
+        <br />
       </div>
     </div>
   );

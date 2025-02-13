@@ -66,7 +66,7 @@ export default function Header() {
           <Link href="/tours" className="block py-2 lg:py-0 hover:text-slate-300 transition-colors duration-300">Our Tours</Link>
           <Link href="/gallery" className="block py-2 lg:py-0 hover:text-slate-300 transition-colors duration-300">Gallery</Link>
           <Link href="/contact" className="block py-2 lg:py-0 hover:text-slate-300 transition-colors duration-300">Contact</Link>
-          <select
+          {/* <select
             value={currency}
             onChange={(e) => setCurrency(e.target.value)}
             className="bg-slate-600 text-white p-1 rounded mt-2 lg:mt-0 hover:bg-slate-500 transition-colors duration-300"
@@ -75,7 +75,7 @@ export default function Header() {
             {currencies.map((curr) => (
               <option key={curr} value={curr}>{curr}</option>
             ))}
-          </select>
+          </select> */}
         </nav>
       </div>
     </header>

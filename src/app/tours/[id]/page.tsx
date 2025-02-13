@@ -12,6 +12,9 @@ export default function TourBooking() {
   const [tour, setTour] = useState<Tour | null>(null);
   const [bookingData, setBookingData] = useState({
     date: '',
+    name: '',
+    email: '',
+    phone: '',
     travelers: 1,
     additionalOptions: [] as string[],
   });
@@ -60,6 +63,44 @@ export default function TourBooking() {
                   name="date"
                   value={bookingData.date}
                   onChange={handleInputChange}
+                  className="w-full p-2 border rounded"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="Name" className="block mb-1">Full Name</label>
+                <input
+                  type="string"
+                  id="name"
+                  name="name"
+                  value={bookingData.name}
+                  onChange={handleInputChange}
+                  defaultValue="John Doe"
+                  className="w-full p-2 border rounded"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block mb-1">Email</label>
+                <input
+                  type="string"
+                  id="email"
+                  name="email"
+                  value={bookingData.email}
+                  onChange={handleInputChange}
+                  defaultValue="johndoe@email.com"
+                  className="w-full p-2 border rounded"
+                  required
+                />
+              </div><div>
+                <label htmlFor="phone" className="block mb-1">Phone Number</label>
+                <input
+                  type="string"
+                  id="phone"
+                  name="phone"
+                  value={bookingData.name}
+                  onChange={handleInputChange}
+                  defaultValue="+254 712 345 678"
                   className="w-full p-2 border rounded"
                   required
                 />
