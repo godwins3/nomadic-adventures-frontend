@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import TestimonialCarousel from "../components/TestimonialCarousel";
 import { useEffect, useState } from 'react';
 import GalleryPreview from "@/components/GalleryPreview";
+import BlogPreview from "@/components/BlogPreview";
 
 const featuredDestinations = [
   {
@@ -217,6 +218,7 @@ export default function Home() {
         </motion.section>
         
         <GalleryPreview />
+        <BlogPreview />
 
         {/* Testimonial Carousel */}
         <TestimonialCarousel />
