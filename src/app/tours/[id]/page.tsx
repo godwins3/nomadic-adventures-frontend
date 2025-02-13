@@ -34,11 +34,34 @@ export default function TourBooking() {
     setBookingData({ ...bookingData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle booking submission logic here
-    console.log('Booking submitted:', bookingData);
+    // Include the tourId in the booking data
+    const bookingDataWithTourId = { ...bookingData, tourId: id };
+      
+    try {
+      const response = await fetch('/api/v1/tours/book', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingDataWithTourId),
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result.message);
+        // Optionally, display a success message to the user
+      } else {
+        console.error('Failed to submit booking');
+        // Optionally, display an error message to the user
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+      // Optionally, display an error message to the user
+    }
   };
+  
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
@@ -98,7 +121,7 @@ export default function TourBooking() {
                   type="string"
                   id="phone"
                   name="phone"
-                  value={bookingData.name}
+                  value={bookingData.phone}
                   onChange={handleInputChange}
                   defaultValue="+254 712 345 678"
                   className="w-full p-2 border rounded"
