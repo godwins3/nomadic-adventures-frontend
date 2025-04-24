@@ -15,158 +15,263 @@ export default function About() {
   ]
 
   const [activeIndex, setActiveIndex] = useState(0);
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-    }, 3000);
+    }, 5000); // Increased to 5 seconds for better viewing
     return () => clearInterval(interval);
   }, [heroImages.length]);
+  
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-slate-50">
       <Header />
 
       <main className="flex-grow">
-        <section className="carousel">
+        {/* Hero Carousel Section */}
+        <section className="relative h-[70vh] overflow-hidden">
           {heroImages.map((image, index) => (
             <div
               key={index}
-              className={`carousel-slide ${index === activeIndex ? 'active' : ''}`}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === activeIndex ? 'opacity-100' : 'opacity-0'
+              }`}
             >
               <Image
                 src={image}
-                alt={`Hero image ${index + 1}`}
-                layout="fill"
-                objectFit="cover"
-                quality={100}
+                alt={`Scenic view ${index + 1}`}
+                fill
+                className="object-cover"
+                priority={index === 0}
+                quality={90}
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+              <div className="absolute inset-0 bg-slate-900/50"></div>
             </div>
           ))}
-          <div className="carousel-content">
-            <h2 className="text-5xl font-bold mb-4">Discover the World with Us</h2>
-            <p className="text-xl mb-8">Unforgettable adventures await you</p>
-            <Link
-              href="/tours"
-              className="bg-yellow-500 text-blue-900 px-8 py-3 rounded-full text-lg font-semibold hover:bg-yellow-400 transition-colors duration-300"
+          
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 z-10">
+            <motion.h2 
+              className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
             >
-              Explore Our Tours
-            </Link>
+              Discover the World <span className="text-emerald-400">with Us</span>
+            </motion.h2>
+            
+            <motion.p 
+              className="text-xl md:text-2xl mb-8 max-w-2xl text-slate-100"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              Unforgettable adventures await on every horizon
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+            >
+              <Link
+                href="/tours"
+                className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-md hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 text-lg font-medium shadow-lg"
+              >
+                Explore Our Tours
+              </Link>
+            </motion.div>
           </div>
-          <div className="carousel-indicators">
+          
+          {/* Carousel Indicators */}
+          <div className="absolute bottom-6 left-0 right-0 flex justify-center space-x-3 z-10">
             {heroImages.map((_, index) => (
-              <div
+              <button
                 key={index}
-                className={`carousel-indicator ${index === activeIndex ? 'active' : ''}`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === activeIndex ? 'bg-emerald-400 w-8' : 'bg-white/50'
+                }`}
                 onClick={() => setActiveIndex(index)}
-              ></div>
+                aria-label={`Go to slide ${index + 1}`}
+              />
             ))}
           </div>
         </section>
-        <motion.h1 
-          className="text-4xl font-bold mb-8 text-center text-indigo-800"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          About Nomadic Adventures
-        </motion.h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16 py-12 px-4">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+        {/* About Us Content */}
+        <div className="max-w-7xl mx-auto px-4 py-16">
+          <motion.h1 
+            className="text-4xl font-bold mb-16 text-center"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <Image
-              src="https://images.unsplash.com/photo-1501555088652-021faa106b9b"
-              alt="Nomadic Adventures Team"
-              width={900}
-              height={600}
-              className="rounded-lg shadow-lg"
-            />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="space-y-4"
+            <span className="bg-gradient-to-r from-emerald-500 to-teal-600 bg-clip-text text-transparent">
+              About Nomadic Adventures
+            </span>
+          </motion.h1>
+
+          {/* Our Story Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1501555088652-021faa106b9b"
+                alt="Nomadic Adventures Team"
+                fill
+                className="object-cover transition-transform duration-700 hover:scale-105"
+              />
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="space-y-6"
+            >
+              <div className="inline-block px-6 py-2 bg-slate-100 rounded-full text-emerald-600 font-semibold mb-2">
+                Our Story
+              </div>
+              <h2 className="text-3xl font-bold text-slate-800 mb-6">
+                A Decade of <span className="text-emerald-500">Adventure</span> & Discovery
+              </h2>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                Nomadic Adventures was founded in 2010 by a group of passionate travelers who wanted to share their love for exploration and adventure with the world.
+              </p>
+              <p className="text-slate-600 text-lg leading-relaxed">
+                With over a decade of experience, we've curated a selection of tours that take you off the beaten path and into the heart of local cultures. Our expert guides, commitment to responsible tourism, and dedication to creating meaningful connections set us apart in the travel industry.
+              </p>
+              <p className="font-medium text-lg text-slate-800">
+                Join us on a journey of discovery, where every adventure is an opportunity to learn, grow, and create lasting memories.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Our Mission Section */}
+          <motion.section
+            className="bg-gradient-to-r from-slate-800 to-slate-900 py-16 px-8 rounded-2xl shadow-xl mb-24 text-white relative overflow-hidden"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+          > 
+            <div className="absolute inset-0 opacity-10">
+              <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="url(#grid)" />
+              </svg>
+              <defs>
+                <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                  <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" />
+                </pattern>
+              </defs>
+            </div>
+            
+            <div className="relative z-10 max-w-4xl mx-auto text-center">
+              <div className="inline-block px-6 py-2 bg-emerald-500/20 text-emerald-400 rounded-full font-semibold mb-4">
+                Our Mission
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-8">Transforming Travel Into <span className="text-emerald-400">Meaningful Experiences</span></h2>
+              <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
+                To provide unique, sustainable, and unforgettable travel experiences that challenge perspectives and foster cultural understanding, while promoting responsible tourism and creating positive impacts on the communities we visit.
+              </p>
+            </div>
+          </motion.section>
+
+          {/* Meet Our Team Section */}
+          <motion.section
+            className="mb-24"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.8 }}
           >
-            <h2 className="text-2xl font-semibold text-indigo-700">Our Story</h2>
-            <p>
-              Nomadic Adventures was founded in 2010 by a group of passionate travelers who wanted to share their love for exploration and adventure with the world.
-            </p>
-            <p>
-              With over a decade of experience, we&apos;ve curated a selection of tours that take you off the beaten path and into the heart of local cultures. Our expert guides, commitment to responsible tourism, and dedication to creating meaningful connections set us apart in the travel industry.
-            </p>
-            <p className="font-medium text-indigo-600">
-              Join us on a journey of discovery, where every adventure is an opportunity to learn, grow, and create lasting memories.
-            </p>
-          </motion.div>
+            <div className="text-center mb-16">
+              <div className="inline-block px-6 py-2 bg-slate-100 rounded-full text-emerald-600 font-semibold mb-4">
+                Meet Our Team
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
+                Passionate Guides <span className="text-emerald-500">Leading the Way</span>
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {[
+                { name: "Jane Doe", role: "Founder & CEO", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80" },
+                { name: "John Smith", role: "Head of Operations", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e" },
+                { name: "Emily Brown", role: "Lead Tour Guide", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330" },
+              ].map((member) => (
+                <motion.div 
+                  key={member.name}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden group"
+                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                >
+                  <div className="relative h-80 overflow-hidden">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-500"></div>
+                  </div>
+                  <div className="p-6 bg-white">
+                    <h3 className="font-bold text-xl text-slate-800">{member.name}</h3>
+                    <p className="text-emerald-600">{member.role}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Our Journey Timeline */}
+          <motion.section
+            className="bg-slate-100 py-16 px-8 rounded-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 1 }}
+          >
+            <div className="text-center mb-16">
+              <div className="inline-block px-6 py-2 bg-white rounded-full text-emerald-600 font-semibold mb-4">
+                Our Journey
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800">
+                <span className="text-emerald-500">Milestones</span> Along Our Path
+              </h2>
+            </div>
+            
+            <div className="max-w-3xl mx-auto relative">
+              {/* Timeline Line */}
+              <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-emerald-200 transform md:translate-x-[-50%]"></div>
+              
+              {[
+                { year: 2010, event: "Nomadic Adventures founded", delay: 0.2 },
+                { year: 2015, event: "Expanded to offer tours on all continents", delay: 0.4 },
+                { year: 2018, event: "Launched our sustainable tourism initiative", delay: 0.6 },
+                { year: 2023, event: "Celebrated our 100,000th traveler", delay: 0.8 },
+              ].map((milestone, index) => (
+                <motion.div 
+                  key={milestone.year}
+                  className={`relative flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} mb-12 last:mb-0`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: milestone.delay }}
+                >
+                  <div className="flex-1 md:text-right pr-0 md:pr-8 pl-8 md:pl-0">
+                    <div className="inline-block px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-lg font-bold mb-2">
+                      {milestone.year}
+                    </div>
+                    <p className="text-lg text-slate-700">{milestone.event}</p>
+                  </div>
+                  
+                  <div className="absolute left-0 md:left-1/2 transform md:translate-x-[-50%] w-6 h-6 rounded-full bg-emerald-500 border-4 border-white shadow-lg"></div>
+                  
+                  <div className="flex-1 pl-8 md:pl-8"></div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
         </div>
-
-        <motion.section
-          className="bg-white py-12 px-6 rounded-xl shadow-md mb-16 py-12 px-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        > <div className="py-12 px-4">
-            <h2 className="text-3xl font-bold mb-6 text-center text-indigo-800">Our Mission</h2>
-            <p className="text-center text-lg max-w-3xl mx-auto">
-              To provide unique, sustainable, and unforgettable travel experiences that challenge perspectives and foster cultural understanding, while promoting responsible tourism and creating positive impacts on the communities we visit.
-            </p>
-          </div>
-        </motion.section>
-
-        <motion.section
-          className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-        >
-          <h2 className="text-3xl font-bold mb-8 text-center text-indigo-800">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12 px-4">
-            {[
-              { name: "Jane Doe", role: "Founder & CEO", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80" },
-              { name: "John Smith", role: "Head of Operations", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e" },
-              { name: "Emily Brown", role: "Lead Tour Guide", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330" },
-            ].map((member) => (
-              <div key={member.name} className="text-center bg-white p-6 rounded-lg shadow-md">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={200}
-                  height={200}
-                  className="rounded-full mx-auto mb-4"
-                />
-                <h3 className="font-semibold text-xl text-indigo-700">{member.name}</h3>
-                <p className="text-gray-600">{member.role}</p>
-              </div>
-            ))}
-          </div>
-        </motion.section>
-
-        <motion.section
-          className="bg-indigo-100 py-12 px-6 rounded-xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1 }}
-        >
-          <h2 className="text-3xl font-bold mb-8 text-center text-indigo-800">Our Journey</h2>
-          <div className="max-w-2xl mx-auto space-y-6">
-            {[
-              { year: 2010, event: "Nomadic Adventures founded" },
-              { year: 2015, event: "Expanded to offer tours on all continents" },
-              { year: 2018, event: "Launched our sustainable tourism initiative" },
-              { year: 2023, event: "Celebrated our 100,000th traveler" },
-            ].map((milestone) => (
-              <div key={milestone.year} className="flex items-center">
-                <div className="font-bold text-xl w-20 text-indigo-700">{milestone.year}</div>
-                <div className="w-4 h-4 bg-indigo-600 rounded-full mx-4"></div>
-                <div className="flex-grow">{milestone.event}</div>
-              </div>
-            ))}
-          </div>
-        </motion.section>
       </main>
       <Footer />
     </div>
