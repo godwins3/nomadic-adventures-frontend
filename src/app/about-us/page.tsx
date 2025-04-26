@@ -142,7 +142,7 @@ export default function About() {
                 Nomadic Adventures was founded in 2010 by a group of passionate travelers who wanted to share their love for exploration and adventure with the world.
               </p>
               <p className="text-slate-600 text-lg leading-relaxed">
-                With over a decade of experience, we've curated a selection of tours that take you off the beaten path and into the heart of local cultures. Our expert guides, commitment to responsible tourism, and dedication to creating meaningful connections set us apart in the travel industry.
+                With over a decade of experience, we&aposve curated a selection of tours that take you off the beaten path and into the heart of local cultures. Our expert guides, commitment to responsible tourism, and dedication to creating meaningful connections set us apart in the travel industry.
               </p>
               <p className="font-medium text-lg text-slate-800">
                 Join us on a journey of discovery, where every adventure is an opportunity to learn, grow, and create lasting memories.
