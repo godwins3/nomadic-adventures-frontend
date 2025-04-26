@@ -13,9 +13,9 @@ export default function Footer() {
         >
           <defs>
             <linearGradient id="waveGradient" x1="0" x2="0" y1="0" y2="1">
-              {/* Green above */}
-              <stop offset="0%" stopColor="#10B981" />
-              {/* Slate-800 below */}
+              {/* Green at the top (matching component above) */}
+              <stop offset="0%" stopColor="#10B981" /> 
+              {/* Slate-800 at the bottom (matching footer) */}
               <stop offset="100%" stopColor="#1e293b" />
             </linearGradient>
           </defs>
@@ -25,7 +25,6 @@ export default function Footer() {
           ></path>
         </svg>
       </div>
-
       <div className="container mx-auto px-4 py-12">
         {/* Footer main content */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
