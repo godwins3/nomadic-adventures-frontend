@@ -42,7 +42,7 @@ const featuredDestinations = [
 const whyUsFeatures = [
   {
     title: 'Unique Destinations',
-    description: 'We offer tours to off-the-beaten-path locations that you won\'t find with other agencies.',
+    description: 'We offer tours to off-the-beaten-path locations that you won\&apost find with other agencies.',
     icon: (
       <svg className="w-8 h-8 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -200,7 +200,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Embark on unforgettable journeys to the world's most breathtaking destinations with expert guides and personalized experiences.
+              Embark on unforgettable journeys to the world&aposs most breathtaking destinations with expert guides and personalized experiences.
             </motion.p>
             <motion.div 
               className="flex flex-col sm:flex-row gap-4"
@@ -279,7 +279,7 @@ export default function Home() {
               >
                 <h3 className="text-2xl font-semibold mb-4 text-slate-800">Crafting Unforgettable Travel Experiences</h3>
                 <p className="text-lg mb-6 text-gray-600 leading-relaxed">
-                  At Nomadic Adventures, we're passionate about creating unforgettable travel experiences that challenge perspectives and foster cultural understanding.
+                  At Nomadic Adventures, we&aposre passionate about creating unforgettable travel experiences that challenge perspectives and foster cultural understanding.
                 </p>
                 <p className="text-lg mb-6 text-gray-600 leading-relaxed">
                   Founded in 2010 by a group of avid travelers, we've spent over a decade curating unique, sustainable tours that take you off the beaten path and into the heart of local cultures.
