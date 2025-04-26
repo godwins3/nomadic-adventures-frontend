@@ -13,9 +13,9 @@ export default function Footer() {
         >
           <defs>
             <linearGradient id="waveGradient" x1="0" x2="0" y1="0" y2="1">
-              {/* Green on top */}
+              {/* Green above */}
               <stop offset="0%" stopColor="#10B981" />
-              {/* Footer color (slate-800) on bottom */}
+              {/* Slate-800 below */}
               <stop offset="100%" stopColor="#1e293b" />
             </linearGradient>
           </defs>
