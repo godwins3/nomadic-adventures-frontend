@@ -40,7 +40,7 @@ export default function Tours() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Experience the world's most breathtaking destinations with our carefully curated tours
+              Experience the world&aposs most breathtaking destinations with our carefully curated tours
             </motion.p>
           </div>
         </div>
