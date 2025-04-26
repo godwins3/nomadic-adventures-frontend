@@ -235,7 +235,7 @@ export default function BookNow() {
                 </div>
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">Booking Confirmed!</h2>
                 <p className="text-lg text-gray-600 mb-6">
-                  Thank you for booking your adventure with us. We've sent a confirmation to your email.
+                  Thank you for booking your adventure with us. We&aposve sent a confirmation to your email.
                 </p>
                 <div className="bg-gray-50 rounded-lg p-6 mb-8">
                   <h3 className="text-xl font-semibold mb-4">Booking Details</h3>
@@ -694,7 +694,7 @@ export default function BookNow() {
                   </div>
                   
                   <div className="mt-10 text-center">
-                    <p className="text-gray-600 mb-4">Have more questions? We're here to help!</p>
+                    <p className="text-gray-600 mb-4">Have more questions? We&aposre here to help!</p>
                     <Link 
                       href="/contact" 
                       className="inline-flex items-center text-emerald-500 hover:text-emerald-600 font-medium"
