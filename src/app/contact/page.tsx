@@ -50,7 +50,7 @@ export default function Contact() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Have questions or ready to book your adventure? We're here to help!
+            Have questions or ready to book your adventure? We&aposre here to help!
           </motion.p>
         </div>
       </div>
